@@ -11,16 +11,16 @@ def simple_model_1(cat_dist, cont_var_genfuncs, prob_funcs):
 		contvarval = cont_var_genfuncs[catval]()
 		prob = prob_funcs[catval](contvarval)
 		outcome = np.random.binomial(1, prob)
-		return [catval, contvarval, prob, outcome]
+		return {'category' : catval, 'x' : contvarval, 'p' : prob, 'outcome' : outcome}
 	return sample
 
-simpmod1_ex1 = \
+s1 = \
 simple_model_1([0.2,0.4,0.4], \
 	[lambda : np.random.uniform(0, 100), lambda : np.random.uniform(40, 120), lambda : np.random.uniform(-20, 80)],\
 	[lambda x : 0.1, lambda x : 0.5, lambda x : 0.9])
 
 
-simpmod1_ex2 = \
+s2 = \
 simple_model_1([0.45,0.1,0.45], \
 	[lambda : np.random.uniform(0, 100), \
 	lambda : np.random.uniform(40, 120), \
