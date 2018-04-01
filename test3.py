@@ -1,5 +1,6 @@
-from gensource import *
-
+from tfsource import *
+from stocgenfuncs1 import *
+from aggtransfuncs import *
 reg_coeff = 0.01
 obs = 600
 category_values = ['mobile', 'desktop', 'tablet']
@@ -103,7 +104,7 @@ pred = net.model(xt)
 #cost = tf.reduce_sum(tf.pow(tf.subtract(pred,yt),2))/len(inputs_array) #+ \
 #tf.reduce_sum([tf.reduce_sum(tf.abs(var)) for var in tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES, scope='model')])
 small = 1*10**(-10)
-reg_coeff = 0.0005
+reg_coeff = 0.001
 cost = -tf.reduce_mean(yt*tf.log(pred+small) +(1-yt)*tf.log((1-pred)+ small)) + \
 reg_coeff*tf.reduce_sum([tf.reduce_sum(tf.abs(var)) for var in tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES, scope='model')])
 

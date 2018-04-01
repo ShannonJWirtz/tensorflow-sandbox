@@ -19,7 +19,6 @@ simple_model_1([0.2,0.4,0.4], \
 	[lambda : np.random.uniform(0, 100), lambda : np.random.uniform(40, 120), lambda : np.random.uniform(-20, 80)],\
 	[lambda x : 0.1, lambda x : 0.5, lambda x : 0.9])
 
-
 s2 = \
 simple_model_1([0.45,0.1,0.45], \
 	[lambda : np.random.uniform(0, 100), \
